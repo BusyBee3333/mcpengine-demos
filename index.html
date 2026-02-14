@@ -1,636 +1,155 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCPEngine — AI Infrastructure for Business Software</title>
-  <meta name="description" content="Connect AI assistants to 30+ business platforms in one click. Managed MCP servers for ServiceTitan, Mailchimp, Calendly, Zendesk, and more.">
+  <title>MCP Engine — AI-Powered Integrations</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            engine: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              200: '#bae6fd',
-              300: '#7dd3fc',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-              800: '#075985',
-              900: '#0c4a6e',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-glow {
-      background: radial-gradient(ellipse 100% 60% at 50% -20%, rgba(14, 165, 233, 0.15), transparent);
-    }
-    .platform-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-    }
-    .platform-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.25);
-      border-color: rgba(14, 165, 233, 0.4);
-    }
-    .stat-number {
-      font-variant-numeric: tabular-nums;
-    }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .card-glow:hover { box-shadow: 0 0 30px rgba(139,92,246,0.15); transform: translateY(-2px); }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased">
-
-  <!-- Nav -->
-  <nav class="fixed top-0 w-full z-50 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-xl">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-engine-500 to-purple-600 flex items-center justify-center">
-          <i data-lucide="zap" class="w-6 h-6 text-white"></i>
-        </div>
-        <span class="text-xl font-bold">MCPEngine</span>
+<body class="bg-zinc-950 text-zinc-100 antialiased">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/50 border border-zinc-700/50 text-sm text-zinc-300 mb-6">
+        <span class="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
+        30 Platforms · Open Source
       </div>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#platforms" class="text-slate-400 hover:text-white transition">Platforms</a>
-        <a href="#pricing" class="text-slate-400 hover:text-white transition">Pricing</a>
-        <a href="https://github.com/BusyBee3333/mcpengine" target="_blank" class="text-slate-400 hover:text-white transition">GitHub</a>
-        <a href="#contact" class="px-5 py-2.5 rounded-lg bg-engine-500 hover:bg-engine-600 text-white font-medium transition">Get Started</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="relative pt-32 pb-24 px-6 hero-glow">
-    <div class="max-w-6xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 text-sm text-slate-300 mb-8">
-        <span class="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-        30 platforms, 240+ tools, production-ready
-      </div>
-      
-      <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
-        AI Infrastructure<br>
-        <span class="gradient-text">for Business Software</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+        <span style="background:linear-gradient(135deg,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">MCP Engine</span>
       </h1>
-      
-      <p class="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-        Connect Claude, ChatGPT, and other AI assistants to your business tools in one click. Managed MCP servers for 30+ platforms.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#platforms" class="px-8 py-4 rounded-xl bg-engine-500 hover:bg-engine-600 text-white font-semibold text-lg transition shadow-2xl shadow-engine-500/50">
-          Browse Platforms
-        </a>
-        <a href="https://github.com/BusyBee3333/mcpengine" target="_blank" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-lg transition border border-slate-700">
-          View on GitHub
-        </a>
-      </div>
-      
-      <!-- Stats -->
-      <div class="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-        <div>
-          <div class="text-5xl font-black gradient-text stat-number mb-2">30</div>
-          <div class="text-slate-500 font-medium">Platforms</div>
-        </div>
-        <div>
-          <div class="text-5xl font-black gradient-text stat-number mb-2">240+</div>
-          <div class="text-slate-500 font-medium">Tools</div>
-        </div>
-        <div>
-          <div class="text-5xl font-black gradient-text stat-number mb-2">100%</div>
-          <div class="text-slate-500 font-medium">Open Source</div>
-        </div>
-      </div>
+      <p class="text-xl text-zinc-400 max-w-2xl mx-auto">Connect any SaaS platform to AI in 2 clicks. Full API access through the Model Context Protocol.</p>
     </div>
-  </section>
 
-  <!-- What is MCPEngine -->
-  <section class="py-24 px-6 border-t border-slate-800/50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black mb-6">What is MCPEngine?</h2>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto">
-          The infrastructure layer that connects AI assistants to business software through the Model Context Protocol.
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800/50">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-engine-500 to-purple-600 flex items-center justify-center mb-6">
-            <i data-lucide="plug" class="w-7 h-7 text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4">One-Click Connect</h3>
-          <p class="text-slate-400 leading-relaxed">
-            No API wrappers to write. Deploy a server, add credentials, and your AI can instantly use ServiceTitan, Mailchimp, or any of 30+ platforms.
-          </p>
-        </div>
-        
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800/50">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-6">
-            <i data-lucide="shield-check" class="w-7 h-7 text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4">Production-Ready</h3>
-          <p class="text-slate-400 leading-relaxed">
-            Built with TypeScript, comprehensive error handling, and battle-tested with real customer data. Not toy demos.
-          </p>
-        </div>
-        
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800/50">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500 to-orange-600 flex items-center justify-center mb-6">
-            <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4">Managed Hosting</h3>
-          <p class="text-slate-400 leading-relaxed">
-            Self-host from our GitHub repo or use our managed service. Auto-updates, monitoring, and 99.9% uptime SLA.
-          </p>
-        </div>
-      </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <a href="calendly.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#006BFF"><span class="font-bold text-sm text-white">C</span></div>
+        <div><div class="font-semibold">Calendly</div><div class="text-xs text-zinc-500">47 tools</div></div>
+      </a>
+      <a href="zendesk.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#03363D"><span class="font-bold text-sm text-white">Z</span></div>
+        <div><div class="font-semibold">Zendesk</div><div class="text-xs text-zinc-500">156 tools</div></div>
+      </a>
+      <a href="trello.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#0079BF"><span class="font-bold text-sm text-white">T</span></div>
+        <div><div class="font-semibold">Trello</div><div class="text-xs text-zinc-500">89 tools</div></div>
+      </a>
+      <a href="gusto.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#F45D48"><span class="font-bold text-sm text-white">G</span></div>
+        <div><div class="font-semibold">Gusto</div><div class="text-xs text-zinc-500">72 tools</div></div>
+      </a>
+      <a href="mailchimp.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FFE01B"><span class="font-bold text-sm text-black">M</span></div>
+        <div><div class="font-semibold">Mailchimp</div><div class="text-xs text-zinc-500">94 tools</div></div>
+      </a>
+      <a href="clickup.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#7B68EE"><span class="font-bold text-sm text-white">C</span></div>
+        <div><div class="font-semibold">ClickUp</div><div class="text-xs text-zinc-500">134 tools</div></div>
+      </a>
+      <a href="acuity.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#315B7D"><span class="font-bold text-sm text-white">A</span></div>
+        <div><div class="font-semibold">Acuity Scheduling</div><div class="text-xs text-zinc-500">38 tools</div></div>
+      </a>
+      <a href="squarespace.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#000000;border:1px solid #333"><span class="font-bold text-sm text-white">S</span></div>
+        <div><div class="font-semibold">Squarespace</div><div class="text-xs text-zinc-500">67 tools</div></div>
+      </a>
+      <a href="brevo.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#0B996E"><span class="font-bold text-sm text-white">B</span></div>
+        <div><div class="font-semibold">Brevo</div><div class="text-xs text-zinc-500">82 tools</div></div>
+      </a>
+      <a href="wrike.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#08CF65"><span class="font-bold text-sm text-white">W</span></div>
+        <div><div class="font-semibold">Wrike</div><div class="text-xs text-zinc-500">98 tools</div></div>
+      </a>
+      <a href="bamboohr.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#73C41D"><span class="font-bold text-sm text-white">B</span></div>
+        <div><div class="font-semibold">BambooHR</div><div class="text-xs text-zinc-500">56 tools</div></div>
+      </a>
+      <a href="freshbooks.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#0075DD"><span class="font-bold text-sm text-white">F</span></div>
+        <div><div class="font-semibold">FreshBooks</div><div class="text-xs text-zinc-500">64 tools</div></div>
+      </a>
+      <a href="clover.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#43B02A"><span class="font-bold text-sm text-white">C</span></div>
+        <div><div class="font-semibold">Clover</div><div class="text-xs text-zinc-500">78 tools</div></div>
+      </a>
+      <a href="servicetitan.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FF6B00"><span class="font-bold text-sm text-white">S</span></div>
+        <div><div class="font-semibold">ServiceTitan</div><div class="text-xs text-zinc-500">124 tools</div></div>
+      </a>
+      <a href="rippling.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FEC400"><span class="font-bold text-sm text-black">R</span></div>
+        <div><div class="font-semibold">Rippling</div><div class="text-xs text-zinc-500">89 tools</div></div>
+      </a>
+      <a href="freshdesk.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#25C16F"><span class="font-bold text-sm text-white">F</span></div>
+        <div><div class="font-semibold">Freshdesk</div><div class="text-xs text-zinc-500">92 tools</div></div>
+      </a>
+      <a href="keap.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#2D9F2D"><span class="font-bold text-sm text-white">K</span></div>
+        <div><div class="font-semibold">Keap</div><div class="text-xs text-zinc-500">76 tools</div></div>
+      </a>
+      <a href="constantcontact.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#1856A8"><span class="font-bold text-sm text-white">C</span></div>
+        <div><div class="font-semibold">Constant Contact</div><div class="text-xs text-zinc-500">58 tools</div></div>
+      </a>
+      <a href="lightspeed.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#E4002B"><span class="font-bold text-sm text-white">L</span></div>
+        <div><div class="font-semibold">Lightspeed</div><div class="text-xs text-zinc-500">86 tools</div></div>
+      </a>
+      <a href="bigcommerce.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#34313F"><span class="font-bold text-sm text-white">B</span></div>
+        <div><div class="font-semibold">BigCommerce</div><div class="text-xs text-zinc-500">112 tools</div></div>
+      </a>
+      <a href="toast.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FF4C00"><span class="font-bold text-sm text-white">T</span></div>
+        <div><div class="font-semibold">Toast</div><div class="text-xs text-zinc-500">94 tools</div></div>
+      </a>
+      <a href="jobber.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#7AC143"><span class="font-bold text-sm text-white">J</span></div>
+        <div><div class="font-semibold">Jobber</div><div class="text-xs text-zinc-500">68 tools</div></div>
+      </a>
+      <a href="wave.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#165DFF"><span class="font-bold text-sm text-white">W</span></div>
+        <div><div class="font-semibold">Wave</div><div class="text-xs text-zinc-500">42 tools</div></div>
+      </a>
+      <a href="closecrm.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#3D5AFE"><span class="font-bold text-sm text-white">C</span></div>
+        <div><div class="font-semibold">Close CRM</div><div class="text-xs text-zinc-500">84 tools</div></div>
+      </a>
+      <a href="pipedrive.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#017737"><span class="font-bold text-sm text-white">P</span></div>
+        <div><div class="font-semibold">Pipedrive</div><div class="text-xs text-zinc-500">76 tools</div></div>
+      </a>
+      <a href="helpscout.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#1292EE"><span class="font-bold text-sm text-white">H</span></div>
+        <div><div class="font-semibold">Help Scout</div><div class="text-xs text-zinc-500">54 tools</div></div>
+      </a>
+      <a href="basecamp.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#1D2D35"><span class="font-bold text-sm text-white">B</span></div>
+        <div><div class="font-semibold">Basecamp</div><div class="text-xs text-zinc-500">62 tools</div></div>
+      </a>
+      <a href="housecallpro.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FF5722"><span class="font-bold text-sm text-white">H</span></div>
+        <div><div class="font-semibold">Housecall Pro</div><div class="text-xs text-zinc-500">72 tools</div></div>
+      </a>
+      <a href="fieldedge.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#0066B2"><span class="font-bold text-sm text-white">F</span></div>
+        <div><div class="font-semibold">FieldEdge</div><div class="text-xs text-zinc-500">68 tools</div></div>
+      </a>
+      <a href="touchbistro.html" class="p-5 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition-all flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#F26522"><span class="font-bold text-sm text-white">T</span></div>
+        <div><div class="font-semibold">TouchBistro</div><div class="text-xs text-zinc-500">58 tools</div></div>
+      </a>
     </div>
-  </section>
 
-  <!-- Platforms Grid -->
-  <section id="platforms" class="py-24 px-6 border-t border-slate-800/50">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-20">
-        <h2 class="text-4xl md:text-5xl font-black mb-6">30 Platforms. One Engine.</h2>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto">
-          From field service to e-commerce, we've built MCP servers for the tools your business actually uses.
-        </p>
-      </div>
-      
-      <!-- Categories -->
-      <div class="space-y-16">
-        
-        <!-- Field Service -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="wrench" class="w-6 h-6 text-orange-500"></i>
-            Field Service
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="servicetitan.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                <i data-lucide="wrench" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">ServiceTitan</div>
-            </a>
-            <a href="jobber.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                <i data-lucide="briefcase" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Jobber</div>
-            </a>
-            <a href="housecallpro.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                <i data-lucide="home" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Housecall Pro</div>
-            </a>
-            <a href="fieldedge.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
-                <i data-lucide="tool" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">FieldEdge</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- HR & Payroll -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="users" class="w-6 h-6 text-pink-500"></i>
-            HR & Payroll
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="gusto.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                <i data-lucide="users" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Gusto</div>
-            </a>
-            <a href="bamboohr.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                <i data-lucide="user-check" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">BambooHR</div>
-            </a>
-            <a href="rippling.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                <i data-lucide="building-2" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Rippling</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Scheduling -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="calendar" class="w-6 h-6 text-blue-500"></i>
-            Scheduling
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="calendly.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Calendly</div>
-            </a>
-            <a href="acuity.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
-                <i data-lucide="clock" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Acuity</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Restaurant & POS -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="utensils" class="w-6 h-6 text-red-500"></i>
-            Restaurant & POS
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="toast.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
-                <i data-lucide="utensils" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Toast</div>
-            </a>
-            <a href="touchbistro.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                <i data-lucide="smartphone" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">TouchBistro</div>
-            </a>
-            <a href="clover.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-lime-600 flex items-center justify-center">
-                <i data-lucide="credit-card" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Clover</div>
-            </a>
-            <a href="lightspeed.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center">
-                <i data-lucide="zap" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Lightspeed</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Email Marketing -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="mail" class="w-6 h-6 text-yellow-500"></i>
-            Email Marketing
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="mailchimp.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
-                <i data-lucide="mail" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Mailchimp</div>
-            </a>
-            <a href="brevo.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                <i data-lucide="send" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Brevo</div>
-            </a>
-            <a href="constantcontact.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                <i data-lucide="megaphone" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Constant Contact</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- CRM -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="target" class="w-6 h-6 text-purple-500"></i>
-            CRM
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="closecrm.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-                <i data-lucide="target" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Close</div>
-            </a>
-            <a href="pipedrive.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Pipedrive</div>
-            </a>
-            <a href="keap.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Keap</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Project Management -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="layout-grid" class="w-6 h-6 text-blue-500"></i>
-            Project Management
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="trello.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                <i data-lucide="layout-grid" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Trello</div>
-            </a>
-            <a href="clickup.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
-                <i data-lucide="check-circle" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">ClickUp</div>
-            </a>
-            <a href="basecamp.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                <i data-lucide="mountain" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Basecamp</div>
-            </a>
-            <a href="wrike.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                <i data-lucide="layers" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Wrike</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Customer Support -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="headphones" class="w-6 h-6 text-green-500"></i>
-            Customer Support
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="zendesk.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                <i data-lucide="headphones" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Zendesk</div>
-            </a>
-            <a href="freshdesk.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Freshdesk</div>
-            </a>
-            <a href="helpscout.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
-                <i data-lucide="life-buoy" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Help Scout</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- E-commerce -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="shopping-bag" class="w-6 h-6 text-purple-500"></i>
-            E-commerce
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="squarespace.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-                <i data-lucide="square" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Squarespace</div>
-            </a>
-            <a href="bigcommerce.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                <i data-lucide="shopping-bag" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">BigCommerce</div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Accounting -->
-        <div>
-          <h3 class="text-2xl font-bold mb-8 text-slate-300 flex items-center gap-3">
-            <i data-lucide="receipt" class="w-6 h-6 text-green-500"></i>
-            Accounting
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="freshbooks.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                <i data-lucide="receipt" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">FreshBooks</div>
-            </a>
-            <a href="wave.html" class="platform-card p-8 rounded-2xl bg-slate-900/30 hover:bg-slate-900/60 text-center group">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                <i data-lucide="wallet" class="w-8 h-8 text-white"></i>
-              </div>
-              <div class="font-bold">Wave</div>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing" class="py-24 px-6 border-t border-slate-800/50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black mb-6">Simple, Transparent Pricing</h2>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto">
-          Self-host for free, use our managed service, or become a provider.
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Open Source -->
-        <div class="p-8 rounded-2xl bg-slate-900/30 border border-slate-800/50">
-          <div class="text-lg font-semibold text-slate-400 mb-2">Open Source</div>
-          <div class="text-5xl font-black mb-6">
-            $0
-            <span class="text-xl text-slate-500 font-normal">/forever</span>
-          </div>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">All 30 MCP servers</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Full source code access</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Self-host anywhere</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">MIT license</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Community support</span>
-            </li>
-          </ul>
-          <a href="https://github.com/BusyBee3333/mcpengine" target="_blank" class="block w-full py-3 px-6 rounded-lg bg-slate-800 hover:bg-slate-700 text-center font-semibold transition">
-            Get Started
-          </a>
-        </div>
-        
-        <!-- Per-Platform Managed -->
-        <div class="p-8 rounded-2xl bg-gradient-to-br from-engine-500/10 to-purple-600/10 border-2 border-engine-500/50 relative">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-engine-500 to-purple-600 text-sm font-bold text-white">
-            Most Popular
-          </div>
-          <div class="text-lg font-semibold text-engine-400 mb-2">Select Your Apps</div>
-          <div class="text-5xl font-black mb-6">
-            $49
-            <span class="text-xl text-slate-500 font-normal">/app/mo</span>
-          </div>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-engine-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Choose any platforms</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-engine-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Fully managed hosting</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-engine-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Auto-updates</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-engine-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">99.9% uptime SLA</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-engine-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Email support</span>
-            </li>
-          </ul>
-          <a href="#contact" class="block w-full py-3 px-6 rounded-lg bg-engine-500 hover:bg-engine-600 text-center font-semibold transition text-white">
-            Coming Q2 2026
-          </a>
-        </div>
-        
-        <!-- Enterprise / Reseller -->
-        <div class="p-8 rounded-2xl bg-slate-900/30 border border-slate-800/50">
-          <div class="text-lg font-semibold text-slate-400 mb-2">Become a Provider</div>
-          <div class="text-5xl font-black mb-6">
-            Partner
-          </div>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">White-label deployment</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Offer managed services</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Revenue sharing model</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Dedicated support</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="check" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
-              <span class="text-slate-300">Custom SLA</span>
-            </li>
-          </ul>
-          <a href="mailto:partners@mcpengine.com" class="block w-full py-3 px-6 rounded-lg bg-slate-800 hover:bg-slate-700 text-center font-semibold transition">
-            Become a Partner
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact" class="py-24 px-6 border-t border-slate-800/50">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to Power Your AI?</h2>
-      <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
-        Join early adopters building the future of AI-powered business automation.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://github.com/BusyBee3333/mcpengine" target="_blank" class="px-8 py-4 rounded-xl bg-engine-500 hover:bg-engine-600 text-white font-semibold text-lg transition shadow-2xl shadow-engine-500/50">
-          Explore on GitHub
-        </a>
-        <a href="mailto:hello@mcpengine.com" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-lg transition border border-slate-700">
-          Get in Touch
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/50 py-12 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-engine-500 to-purple-600 flex items-center justify-center">
-            <i data-lucide="zap" class="w-6 h-6 text-white"></i>
-          </div>
-          <span class="text-lg font-bold">MCPEngine</span>
-        </div>
-        <div class="flex items-center gap-6 text-slate-400 text-sm">
-          <a href="https://github.com/BusyBee3333/mcpengine" target="_blank" class="hover:text-white transition">GitHub</a>
-          <a href="mailto:hello@mcpengine.com" class="hover:text-white transition">Contact</a>
-          <span>© 2026 MCPEngine</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
-    
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
+    <footer class="mt-20 text-center text-zinc-600 text-sm">
+      © 2026 MCP Engine. Open source AI integrations for every SaaS platform.
+    </footer>
+  </div>
 </body>
 </html>

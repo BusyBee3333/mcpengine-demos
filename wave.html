@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wave Connect — AI-Power Your Accounting in 2 Clicks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              500: '#165DFF',
+              600: '#165DFFdd',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, #165DFF 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-glow { background: radial-gradient(ellipse 80% 50% at 50% -20%, #165DFF25, transparent); }
+    .card-glow:hover { box-shadow: 0 0 40px #165DFF20; }
+    
+    /* Chat demo styles */
+    .chat-demo-container {
+      background: rgba(24, 24, 27, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .chat-embed {
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 9999px;
+      font-size: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .status-red { background: rgba(239,68,68,0.15); color: #F87171; }
+    .status-amber { background: rgba(245,158,11,0.15); color: #FBBF24; }
+    .status-green { background: rgba(16,185,129,0.15); color: #34D399; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+  
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: #165DFF">
+          <i data-lucide="zap" class="w-5 h-5" style="color: #fff"></i>
+        </div>
+        <span class="font-bold text-xl">Wave Connect</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-zinc-400 hover:text-white transition">Features</a>
+        <a href="#pricing" class="text-zinc-400 hover:text-white transition">Waitlist</a>
+        <a href="#faq" class="text-zinc-400 hover:text-white transition">FAQ</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#pricing" class="px-4 py-2 rounded-lg font-medium transition" style="background: #165DFF; color: #fff">
+          Join Waitlist
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center hero-glow pt-20">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/50 border border-zinc-700/50 text-sm text-zinc-300 mb-8">
+            <span class="w-2 h-2 rounded-full animate-pulse" style="background: #165DFF"></span>
+            Open Source + Hosted
+          </div>
+          
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            Connect <span class="gradient-text">Wave</span><br>to AI in 2 Clicks
+          </h1>
+          
+          <p class="text-xl text-zinc-400 mb-8">
+            The complete Wave MCP server. Invoices, receipts, and reports. <strong class="text-white">42 tools</strong> ready to automate.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#pricing" class="px-6 py-3 rounded-lg font-semibold text-center transition" style="background: #165DFF; color: #fff">
+              Join the Waitlist
+            </a>
+            <a href="#features" class="px-6 py-3 rounded-lg font-semibold text-center border border-zinc-700 hover:border-zinc-500 transition">
+              See Features
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
+            <video autoplay loop muted playsinline class="w-full">
+              <source src="../output/wave.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-lg text-sm font-medium" style="background: #165DFF; color: #fff">
+            42 API Tools
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat Demo -->
+  <section class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">See it in action</h2>
+      <p class="text-zinc-400 text-center mb-10">Watch AI work with your Wave data in real-time</p>
+      <div class="chat-demo-container">
+        <!-- Chat header -->
+        <div class="flex items-center gap-3 px-5 py-4 border-b border-white/5">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #165DFF, #165DFF99)">
+            <span class="font-bold text-xs" style="color: #fff">WV</span>
+          </div>
+          <div>
+            <div class="font-semibold text-sm">Wave Connect AI</div>
+            <div class="text-xs text-zinc-500 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Online · 42 tools available
+            </div>
+          </div>
+        </div>
+        <!-- Chat messages -->
+        <div class="p-4 sm:p-6 space-y-4 min-h-[280px]" id="chat-demo">
+          <!-- Messages animated in via JS -->
+        </div>
+        <!-- Chat input -->
+        <div class="px-4 pb-4">
+          <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700/30">
+            <input type="text" placeholder="Ask Wave Connect anything..." class="flex-1 bg-transparent text-sm outline-none text-zinc-400 placeholder:text-zinc-600" disabled>
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: #165DFF">
+              <i data-lucide="arrow-up" class="w-4 h-4" style="color: #fff"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Setting up Wave + AI<br><span class="text-zinc-500">shouldn't take a week</span>
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+              <i data-lucide="x" class="w-4 h-4 text-red-400"></i>
+            </div>
+            <p class="text-zinc-400">Shoebox of receipts</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: #165DFF30">
+              <i data-lucide="check" class="w-4 h-4" style="color: #165DFF"></i>
+            </div>
+            <p class="text-white font-medium">AI categorizes everything</p>
+          </div>
+        </div>
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+              <i data-lucide="x" class="w-4 h-4 text-red-400"></i>
+            </div>
+            <p class="text-zinc-400">Inconsistent invoicing</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: #165DFF30">
+              <i data-lucide="check" class="w-4 h-4" style="color: #165DFF"></i>
+            </div>
+            <p class="text-white font-medium">Automated billing cycles</p>
+          </div>
+        </div>
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+              <i data-lucide="x" class="w-4 h-4 text-red-400"></i>
+            </div>
+            <p class="text-zinc-400">Accounting anxiety</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background: #165DFF30">
+              <i data-lucide="check" class="w-4 h-4" style="color: #165DFF"></i>
+            </div>
+            <p class="text-white font-medium">AI keeps books clean</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Everything you need</h2>
+      <p class="text-zinc-400 text-center mb-12">Full Wave API access through one simple connection</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background: #165DFF20">
+            <i data-lucide="layers" class="w-5 h-5" style="color: #165DFF"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Invoice Management</h3>
+          <p class="text-zinc-400 text-sm">Create, send, track invoices automatically.</p>
+        </div>
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background: #165DFF20">
+            <i data-lucide="layers" class="w-5 h-5" style="color: #165DFF"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Receipt Scanning</h3>
+          <p class="text-zinc-400 text-sm">Capture expenses, categorize, attach to records.</p>
+        </div>
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background: #165DFF20">
+            <i data-lucide="layers" class="w-5 h-5" style="color: #165DFF"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Banking</h3>
+          <p class="text-zinc-400 text-sm">Connect accounts, categorize transactions, reconcile.</p>
+        </div>
+        
+        <div class="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-glow transition">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background: #165DFF20">
+            <i data-lucide="layers" class="w-5 h-5" style="color: #165DFF"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Reports</h3>
+          <p class="text-zinc-400 text-sm">P&L, balance sheet, cash flow — on demand.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section id="pricing" class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Join the Waitlist</h2>
+      <p class="text-zinc-400 mb-8">Be the first to know when we launch. Early access + exclusive perks.</p>
+      <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); this.innerHTML = '<p class=\'text-green-400 py-4\'>You\'re on the list! We\'ll reach out soon.</p>'">
+        <input type="email" placeholder="you@company.com" required class="flex-1 px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:border-zinc-500 focus:outline-none">
+        <button type="submit" class="px-6 py-3 rounded-lg font-semibold transition" style="background: #165DFF; color: #fff">
+          Get Early Access
+        </button>
+      </form>
+      <p class="text-zinc-500 text-sm mt-4">We respect your privacy. No spam, ever.</p>
+    </div>
+  </section>
+
+  <!-- Open Source -->
+  <section class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-800 text-zinc-300">Open Source</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Self-host if you want.<br><span class="text-zinc-500">We won't stop you.</span>
+      </h2>
+      <p class="text-zinc-400 mb-6">
+        The entire MCP server is open source. Run it yourself, modify it, contribute back.
+        The hosted version just saves you the hassle.
+      </p>
+      <a href="#" class="inline-flex items-center gap-2 text-zinc-300 hover:text-white transition">
+        <i data-lucide="github" class="w-5 h-5"></i>
+        View on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently asked questions</h2>
+      <div class="space-y-6">
+        <details class="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">
+            What is MCP?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-zinc-400">MCP (Model Context Protocol) is a standard for connecting AI assistants to external tools and data. It's supported by Claude, and lets AI actually take actions in your systems — not just chat about them.</p>
+        </details>
+        <details class="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">
+            Do I need to install anything?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-zinc-400">For the hosted version, no. Just connect your Wave account via OAuth and add the MCP endpoint to your AI client (Claude Desktop, etc.). If you self-host, you'll need Node.js.</p>
+        </details>
+        <details class="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">
+            Is my data secure?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-zinc-400">Yes. We use OAuth 2.0 and never store your Wave API keys. Tokens are encrypted at rest and in transit. You can revoke access anytime from your Wave settings.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 border-t border-zinc-800/50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to AI-power your Wave?</h2>
+      <p class="text-zinc-400 mb-8">Join hundreds of businesses already automating with Wave Connect.</p>
+      <a href="#pricing" class="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition" style="background: #165DFF; color: #fff">
+        Join the Waitlist →
+      </a>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-zinc-800/50">
+    <div class="max-w-6xl mx-auto px-6 text-center text-zinc-500 text-sm">
+      © 2026 Wave Connect. Not affiliated with Wave.
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    lucide.createIcons();
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Chat demo animation
+    const chatDemo = document.getElementById('chat-demo');
+    const chatMessages = [{"type":"user","text":"Pull up my P&L for this quarter. How are we tracking against budget?"},{"type":"ai","text":"Here's your Q2 P&L summary:","widgetHtml":"\u003cdiv class=\"chat-embed\"\u003e\u003ctable style=\"width:100%;border-collapse:collapse;font-size:11px;\"\u003e\u003ctr style=\"border-bottom:1px solid rgba(255,255,255,0.05);\"\u003e\u003ctd style=\"padding:5px 6px;color:#9CA3AF;\"\u003eRevenue\u003c/td\u003e\u003ctd style=\"padding:5px 6px;text-align:right;font-family:monospace;font-weight:600;color:#34D399;\"\u003e$128,400\u003c/td\u003e\u003c/tr\u003e\u003ctr style=\"border-bottom:1px solid rgba(255,255,255,0.05);\"\u003e\u003ctd style=\"padding:5px 6px;color:#9CA3AF;\"\u003eCOGS\u003c/td\u003e\u003ctd style=\"padding:5px 6px;text-align:right;font-family:monospace;font-weight:600;color:#F3F4F6;\"\u003e$38,520\u003c/td\u003e\u003c/tr\u003e\u003ctr style=\"border-bottom:1px solid rgba(255,255,255,0.05);\"\u003e\u003ctd style=\"padding:5px 6px;color:#9CA3AF;\"\u003eGross Profit\u003c/td\u003e\u003ctd style=\"padding:5px 6px;text-align:right;font-family:monospace;font-weight:600;color:#34D399;\"\u003e$89,880\u003c/td\u003e\u003c/tr\u003e\u003ctr style=\"border-bottom:1px solid rgba(255,255,255,0.05);\"\u003e\u003ctd style=\"padding:5px 6px;color:#9CA3AF;\"\u003eNet Income\u003c/td\u003e\u003ctd style=\"padding:5px 6px;text-align:right;font-family:monospace;font-weight:600;color:#34D399;\"\u003e$34,200\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cdiv style=\"margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.08);font-size:10px;color:#FBBF24;\"\u003e📈 12% above budget · Net margin: 26.6%\u003c/div\u003e\u003c/div\u003e"},{"type":"user","text":"Export this as PDF for our investor meeting and flag any unusual expenses"},{"type":"ai","text":"Generated Q2 P&L report (PDF). Flagged 2 anomalies: Software subscriptions up 34% ($2,100 over budget) and travel up 28%. Both itemized in the appendix.","action":"✓ PDF exported · 2 anomalies flagged · Investor-ready format"}];
+
+    function createChatMessage(msg) {
+      const div = document.createElement('div');
+      div.style.opacity = '0';
+      div.style.transform = 'translateY(15px)';
+
+      if (msg.type === 'user') {
+        div.className = 'flex justify-end';
+        div.innerHTML = '<div style="background: #165DFF20; border: 1px solid #165DFF40;" class="rounded-2xl rounded-br-sm px-4 py-3 max-w-[85%]"><p class="text-sm">' + msg.text + '</p></div>';
+      } else {
+        div.className = 'flex gap-3';
+        var widgetHtml = msg.widgetHtml || '';
+        var actionHtml = msg.action ? '<div style="margin-top:8px;padding:6px 12px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:12px;color:#165DFF;display:inline-flex;align-items:center;gap:6px;">' + msg.action + '</div>' : '';
+        div.innerHTML = '<div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #165DFF, #165DFF99)"><span class="font-bold text-[10px]" style="color: #fff">WV</span></div><div class="max-w-[85%]"><div class="rounded-2xl rounded-tl-sm px-4 py-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);"><p class="text-sm text-zinc-300">' + msg.text + '</p>' + widgetHtml + '</div>' + actionHtml + '</div>';
+      }
+      return div;
+    }
+
+    let chatAnimated = false;
+    ScrollTrigger.create({
+      trigger: chatDemo,
+      start: 'top 80%',
+      onEnter: () => {
+        if (chatAnimated) return;
+        chatAnimated = true;
+        chatMessages.forEach((msg, i) => {
+          setTimeout(() => {
+            const el = createChatMessage(msg);
+            chatDemo.appendChild(el);
+            lucide.createIcons();
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+            chatDemo.scrollTop = chatDemo.scrollHeight;
+          }, i * 1000);
+        });
+      },
+      once: true
+    });
+
+    // Reveal animations for other sections
+    gsap.utils.toArray('section').forEach(section => {
+      gsap.fromTo(section, { opacity: 0.8, y: 20 }, {
+        opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 85%', once: true }
+      });
+    });
+  </script>
+</body>
+</html>
